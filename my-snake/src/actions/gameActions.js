@@ -1,0 +1,1 @@
+export const setCanvas = (payload) => ({type:"SET_CANVAS", payload})
