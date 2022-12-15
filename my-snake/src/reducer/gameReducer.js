@@ -18,7 +18,9 @@ const gameReducer = (state = statInit, action = {} ) => {
         
         return{
             ...state,
-            context: action.payload.context
+            context: action.payload.context,
+            isInit: !state.isInit
+    
         };
 
         case "SET_IS_INIT" :
