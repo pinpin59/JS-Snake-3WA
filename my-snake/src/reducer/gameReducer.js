@@ -8,7 +8,7 @@ const gameReducer = (state = statInit, action = {} ) => {
 
     switch(action.type){
         case "SET_CANVAS" :
-            
+
             return{
                 ...state,
                 canvas: action.payload.canvas
@@ -27,3 +27,5 @@ const gameReducer = (state = statInit, action = {} ) => {
             )
     }
 }
+
+export default gameReducer;

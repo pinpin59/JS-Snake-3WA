@@ -1,13 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Snake = () => {
     
-    const [canvas, setCanvas] = useState(null)
+    const [canvass, setCanvas] = useState(null)
+    const {canvas} = useSelector(state => state)
     const snake = useRef('snake')
-
+    const dispatch = useDispatch();
     
     useEffect(() => {
-        
+        console.log(canvas);
     },[])
 
     return(
