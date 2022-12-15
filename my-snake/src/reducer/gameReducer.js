@@ -11,7 +11,7 @@ const gameReducer = (state = statInit, action = {} ) => {
         case "SET_CANVAS" : 
             return{
                 ...state,
-                canvas: action.payload.canvas
+                canvas: action.payload
             }; 
 
         case "SET_CONTEXT" :
