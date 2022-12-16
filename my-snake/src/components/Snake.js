@@ -1,33 +1,38 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { setIsInit, setCanvas } from "../actions/gameActions";
+import { setIsInit, setCanvas, randomNumbere } from "../actions/gameActions";
 
 
 const Snake = () => {
     
     const [canvas, setCanvas] = useState('')
-    const [ctx, setCtx] = useState()
     const snake = useRef('snake')
     const dispatch = useDispatch();
     
-    // useEffect(() => {
-    //     //console.log(snake.current);
-    //     setContext(snake)
-    // },[snake]) 
-  
+    function randomNumber(){
+        let number = (Math.floor(Math.random() * 78) + 1);
+            while(number % 2){
+             number = Math.floor(Math.random() * 10) + 1;
+            }
+            return number * 10
+    }
+
+    function randomNumber2(){
+        let number = (Math.floor(Math.random() * 58) + 1);
+            while(number % 2){
+             number = Math.floor(Math.random() * 10) + 1;
+            }
+            return number * 10
+    }
    useEffect(() => {
     setCanvas(snake.current);
-
    },[])
-
+;
    useEffect(() => {
-    // console.log("3");
-     //console.log(canvas);
-    console.log(canvas);
+    //console.log(canvas);
     if(canvas){
-        console.log(canvas);
+        
         let ctx = canvas.getContext('2d');
-        let pomme = canvas.getContext('2d');
 
         ctx.beginPath();
         ctx.fillStyle = "#333"
@@ -35,11 +40,13 @@ const Snake = () => {
 
         ctx.beginPath();
         ctx.fillStyle = "#789"
-        ctx.fillRect(20,20,20,20)
+        ctx.fillRect(randomNumber(),randomNumber2(),20,20)
 
-     
-        //let context = ctx.getContext("2D");
-        //ctx.fillStyle = "#333"
+        ctx.beginPath();
+        ctx.fillStyle = "green"
+        ctx.fillRect(20,480,60,20)
+        console.log(ctx);
+
     }
     // console.log(isInit);
    },[canvas])

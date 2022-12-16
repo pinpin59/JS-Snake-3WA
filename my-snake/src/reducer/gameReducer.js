@@ -1,19 +1,19 @@
 const statInit = {
-    canvas : null,
-    context : null,
-    score : 0,
-    isInit : false
+    score : 0
+    
 }
 
 const gameReducer = (state = statInit, action = {} ) => {
 
     switch(action.type){
-        case "SET_CANVAS" : 
-            return{
-                ...state,
-                canvas: action.payload
-            }; 
-
+        case "RANDOM_NUMBER" : 
+        
+            let number = (Math.floor(Math.random() * 78) + 1);
+            while(number % 2){
+             number = Math.floor(Math.random() * 10) + 1;
+            }
+            return number * 10;
+        
         case "SET_CONTEXT" :
         
         return{
