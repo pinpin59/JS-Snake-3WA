@@ -6,9 +6,32 @@ import { setIsInit, setCanvas, randomNumbere } from "../actions/gameActions";
 const Snake = () => {
     
     const [canvas, setCanvas] = useState('')
+    const [x , setX] = useState(0)
+    const [y , setY] = useState(0)
     const snake = useRef('snake')
+
     const dispatch = useDispatch();
-    
+
+    window.onkeydown = function(event) {
+        let keyPr = event.keyCode;
+        console.log(keyPr);
+
+        switch(keyPr){
+            case 38: 
+                setY(y - 20)
+                break;
+            case 40:
+                setY(y + 20)
+                break;
+            default :
+
+        }
+        
+    }    
+    console.log('====================================');
+    console.log(y,x);
+    console.log('====================================');
+
     function randomNumber(){
         let number = (Math.floor(Math.random() * 78) + 1);
             while(number % 2){
@@ -27,9 +50,9 @@ const Snake = () => {
    useEffect(() => {
     setCanvas(snake.current);
    },[])
-;
+
+
    useEffect(() => {
-    //console.log(canvas);
     if(canvas){
         
         let ctx = canvas.getContext('2d');
@@ -44,12 +67,13 @@ const Snake = () => {
 
         ctx.beginPath();
         ctx.fillStyle = "green"
-        ctx.fillRect(20,480,60,20)
+                    //Vers la D et G - Vers le H et B
+        ctx.fillRect(x,y,20,20)
         console.log(ctx);
 
     }
     // console.log(isInit);
-   },[canvas])
+   },[canvas, x ,y])
 
 
     return(
