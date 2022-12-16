@@ -1,3 +1,5 @@
 export const setCanvas = (payload) => ({type:"SET_CANVAS", payload})
 export const setIsInit = () => ({type:"SET_IS_INIT"})
 export const randomNumbere = () => ({type:"RANDOM_NUMBER"})
+export const yDown = (payload) => ({type:"DOWN_Y", payload})
+export const setCtx = (payload) => ({type:"SET_CTX", payload})

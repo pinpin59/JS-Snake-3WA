@@ -1,11 +1,20 @@
 const statInit = {
-    score : 0
-    
+    score : 0,
+    context:null,
+    Y :0,
+    X:0
 }
 
 const gameReducer = (state = statInit, action = {} ) => {
 
     switch(action.type){
+
+        case "SET_CTX":
+            return{
+                ...state,
+                context : action.payload
+            }
+
         case "RANDOM_NUMBER" : 
         
             let number = (Math.floor(Math.random() * 78) + 1);
@@ -14,12 +23,11 @@ const gameReducer = (state = statInit, action = {} ) => {
             }
             return number * 10;
         
-        case "SET_CONTEXT" :
-        
+        case "DOWN_Y" :
+            
         return{
             ...state,
-            context: action.payload.context,
-            isInit: !state.isInit
+            Y: action.payload
     
         };
 
